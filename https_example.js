@@ -9,7 +9,18 @@ var options = {
 var callback =function(response){
 
   console.log("I'm about to make the request!");
-  console.log(`Response: `, response);
+
+  response.on(`data`, function(chunk){
+
+    console.log(`[-- chunk of length `+chunk.length+`--]`);
+
+    console.log(typeof chunk);
+
+    console.log(chunk.toString());
+
+  });
+
+
 }
 
 console.log("I'm about to make the request!");
